@@ -3,8 +3,16 @@ require_relative 'random_pair.rb'
 require_relative 'formatter.rb'
 
 get '/' do
-    erb :get_names
+    quantity = params[quantity]
+    erb :number_students, :locals => {:quantity => quantity}
 end
+post '/number_of_students' do
+    quantity = params[quantity]
+    erb :get_names, :locals => {:quantity => quantity}
+end
+
+
+
 
 post '/names' do
     names = params[:user_names].split.map(&:capitalize).join(' ')
