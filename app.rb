@@ -3,11 +3,10 @@ require_relative 'random_pair.rb'
 require_relative 'formatter.rb'
 
 get '/' do
-    quantity = params[quantity]
-    erb :number_students, :locals => {:quantity => quantity}
+      erb :number_students
 end
 post '/number_of_students' do
-    quantity = params[quantity]
+    quantity = params[:quantity]
     erb :get_names, :locals => {:quantity => quantity}
 end
 
